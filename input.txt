@@ -1,0 +1,6 @@
+mapsize 15
+user 1,2
+dimas 2,3
+ardan 5,5
+jono 5,1
+firsan 3,6

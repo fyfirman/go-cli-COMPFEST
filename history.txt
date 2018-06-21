@@ -1,0 +1,66 @@
+	**********************************************************
+	Driver's name	  	: Dadang
+	Driver's location 	: (6,2)
+
+	From (2,3) to (4,6)
+	Total price 	: 1500
+	Routes:
+	Start at (3,2)
+	Go to (3,3)
+	Go to (3,4)
+	Turn right
+	Go to (4,4)
+	Go to (5,4)
+	Go to (6,4)
+	Finish at (6,4)
+
+	**********************************************************
+	Driver's name	  	: Asep
+	Driver's location 	: (10,7)
+
+	From (5,11) to (3,4)
+	Total price 	: 2700
+	Routes:
+	-Start at (11,5)
+	-Go to (11,4)
+	-Go to (11,3)
+	-Turn left
+	-Go to (10,3)
+	-Go to (9,3)
+	-Go to (8,3)
+	-Go to (7,3)
+	-Go to (6,3)
+	-Go to (5,3)
+	-Go to (4,3)
+	-Finish at (4,3)
+
+	**********************************************************
+	Driver's name	  	: Deni
+	Driver's location 	: (7,11)
+
+	From (12,15) to (3,4)
+	Total price 	: 6000
+	Routes:
+	-Start at (15,12)
+	-Go to (15,11)
+	-Go to (15,10)
+	-Go to (15,9)
+	-Go to (15,8)
+	-Go to (15,7)
+	-Go to (15,6)
+	-Go to (15,5)
+	-Go to (15,4)
+	-Go to (15,3)
+	-Turn left
+	-Go to (14,3)
+	-Go to (13,3)
+	-Go to (12,3)
+	-Go to (11,3)
+	-Go to (10,3)
+	-Go to (9,3)
+	-Go to (8,3)
+	-Go to (7,3)
+	-Go to (6,3)
+	-Go to (5,3)
+	-Go to (4,3)
+	-Finish at (4,3)
