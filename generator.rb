@@ -9,34 +9,38 @@ class Generator
 	attr_accessor :user
 	attr_accessor :destination
 
-	def initialize(*args)
+	def initialize
 		@array_of_driver = []
 		@cost = 300
 		@destination = nil
-		generate_maps(args)
 	end
 
-	def generate_maps(*args)
-		case args[0].length
-		when 1
-			# read_file = Read_file.new(args[0])
-			# add_user(read_file.user_coordinate.x,read_file.user_coordinate.y)
-			# @array_of_driver = read_file.array_of_driver
-			# add_drivers(read_file.number_driver,read_file.array_of_driver)
-		when 3
-			@maps = Maps.new(args[0][0])
-			# puts "Argumen1,Argumen2 = #{args[0][1]}, #{args[0][2]}"
-			add_user(args[0][1],args[0][2])
+	#Generate maps depends on parameter
+	def generate_maps(args)
+		case args.size
+
+		when 1 #parameter filename
+			read_file = Read_file.new(args[0])
+			@maps = Maps.new(read_file.mapsize)
+			add_user(read_file.user_coordinate.x,read_file.user_coordinate.y)
+			@array_of_driver = read_file.array_of_driver
+			add_drivers(read_file.number_driver,read_file.array_of_driver)
+
+		when 3 #3 parameter n x y
+			args.collect!(&:to_i)
+			@maps = Maps.new(args[0])
+			add_user(args[2],args[1])
 			add_drivers(5)
-		else
+
+		else #no parameter
 			@maps = Maps.new(20)
 			add_user
 			add_drivers(5)
 		end
 	end
 
+	#Add user to the map
 	def add_user(*args)
-		# puts "Argumen1,Argumen2 = #{args[0]}, #{args[1]}"
 		if args.length == 0
 			@user = User.new(random_location)
 		else
@@ -46,31 +50,35 @@ class Generator
 		@maps.set_value(@user.location,1) #1 is to indicate User
 	end
 
+	#Add (multiple) drivers to the map 
 	def add_drivers(number, *args)
-		# array_of_driver = []
 		case args.length
-		when 0
+
+		when 0 #Drivers generate aumaticly
 			number.times do 
 				driver_obj = Driver.new(random_location)
 				@array_of_driver << driver_obj
 
 				@maps.set_value(driver_obj.location,2) #2 is to indicate drivers
 			end
-		else
-			puts "ERRRRRRRRRRRRRRRRRRROOOOOO"
+		
+		else #Drivers generate from textfile
+			@array_of_driver.each do |driver|
+				@maps.set_value(driver.location,2) #2 is to indicate drivers
+			end
 		end
-		# array_of_driver
 	end
 
+	#Return random & empty location
 	def random_location
 		candidate_location =  Coordinate.new(@maps.mapsize)
 		while @maps.value(candidate_location) != 0
 			candidate_location =  Coordinate.new(@maps.mapsize)
 		end
 		candidate_location
-		# puts "#{candidate_location.x},#{candidate_location.y}"
 	end
 
+	#Find nearest driver from user
 	def nearest_driver
 		candidate_driver = nil
 		minimum_distance = 2*@maps.mapsize
@@ -84,15 +92,13 @@ class Generator
 		candidate_driver
 	end
 
+	#Calculate distance within 2 location
 	def distance(location_a, location_b)
 		(location_a.x - location_b.x).abs + (location_a.y - location_b.y).abs
 	end
 
+	#Calculate price
 	def price(distance)
 		@cost*distance
 	end
 end
-
-# gocli = Generator.new(10,2,3)
-# gocli.distance()
-# puts gocli.find_nearest_driver.name

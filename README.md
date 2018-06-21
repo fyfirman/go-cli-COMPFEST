@@ -22,6 +22,19 @@ ruby go-cli.rb n x y
 - One user with x,y position
 - 5 Driver with random name & random coordinate
 
+<<<<<<< HEAD
+### 2. Running with file text as a parameter
+*(Not finished)*
+````
+ruby go-cli.rb input.txt
+````
+### 3. Running it with 3 integer as parameter
+```
+ruby go-cli.rb 15 3 2
+```
+
+````
+=======
 ### 3. Running with filename as a parameter
 ````
 ruby go-cli.rb input.txt
@@ -42,6 +55,7 @@ firsan 3,6
  First line should be size of the map
  Second line is put user position with
  and next line is driver name and position 
+>>>>>>> 29bbe7a600f8eaa0537c6dd3d041132849ae1fe7
 
 ## Assumptions
 1. User and Driver positions can not overlap in one place as well as driver within another driver.

@@ -1,13 +1,10 @@
 require_relative 'coordinate.rb'
 
 class Driver
-	attr_reader :location
-	attr_reader :name
-	# @@total_driver = 0
+	attr_accessor :location
+	attr_accessor :name
 	def initialize(*name, coordinate)
-		# @@total_driver += 1
 		@location = coordinate
-	
 		if !name.empty?
 			@name = name
 		else
@@ -17,10 +14,7 @@ class Driver
 
 	#Generate random name
 	def random_name
-		@random_name = ["Asep", "Dadang", "Jajang", "Dede", "Joko", "Deni"]
+		@random_name = ["Asep", "Dadang", "Jajang", "Dede", "Joko", "Deni", "Agung", "Usep", "Dani", "David", "Arif","Andre", "Ananda"]
 		@random_name.shuffle!.pop
 	end
 end
-
-# driver = Driver.new(Coordinate.new(5))
-# puts driver.location.x.to_s + "," + driver.location.y.to_s

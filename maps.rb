@@ -9,21 +9,26 @@ class Maps
 		create(mapsize)
 	end
 	
-	def create(mapsize) #done
+	#Generate array to save value
+	def create(mapsize)
 		@maps_content = Array.new(mapsize) {Array.new(mapsize,0)}
 	end
 
-	def set_value(coordinate,value) #done
+	#To set value of element
+	def set_value(coordinate,value)
 		@maps_content[coordinate.x][coordinate.y] = value
 	end	
 
+	#To return value of element
 	def value(coordinate)
 		@maps_content[coordinate.x][coordinate.y]
 	end
 
+	#Print map
 	def show 
 
 		puts "\n\t->Your maps \n\n"
+
 		#Printing 0..mapsize + "y" horizontally
 		print "\t   "
 		0.upto(@maps_content.length-1) do |num|

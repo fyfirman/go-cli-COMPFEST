@@ -13,7 +13,3 @@ class Coordinate
 		end
 	end
 end
-
-# coord = Coordinate.new(2,3,3)
-# puts coord.x
-# puts coord.y
