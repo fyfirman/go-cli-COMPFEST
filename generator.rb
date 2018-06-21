@@ -17,8 +17,8 @@ class Generator
 	end
 
 	def generate_maps(*args)
-		case args.length
-		when 0
+		case args[0].length
+		when 1
 			# read_file = Read_file.new(args[0])
 			# add_user(read_file.user_coordinate.x,read_file.user_coordinate.y)
 			# @array_of_driver = read_file.array_of_driver

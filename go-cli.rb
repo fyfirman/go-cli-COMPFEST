@@ -6,7 +6,7 @@ require_relative "history.rb"
 
 
 *input_parameter = ARGV
-gocli = Generator.new(input_parameter)
+gocli = Generator.new(15,2,3)
 ARGV.clear
 loop do
 	system("cls")
